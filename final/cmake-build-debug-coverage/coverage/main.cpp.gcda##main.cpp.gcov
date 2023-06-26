@@ -1,0 +1,1151 @@
+        -:    0:Source:D:/Cpp-projects/final/main.cpp
+        -:    0:Graph:D:\Cpp-projects\final\cmake-build-debug-coverage\CMakeFiles\final.dir\main.cpp.gcno
+        -:    0:Data:D:\Cpp-projects\final\cmake-build-debug-coverage\CMakeFiles\final.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <iostream>
+        -:    2:#include <string>
+        -:    3:#include <utility>
+        -:    4:#include <vector>
+        -:    5:#include <fstream>
+        -:    6:#include <sstream>
+        -:    7:
+        -:    8:using namespace std;
+        -:    9:
+        -:   10:class Product {
+        -:   11:public:
+function _ZN7ProductC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_id called 4 returned 100% blocks executed 100%
+        4:   12:    Product(string id, string name, int quantity, double price) : id(std::move(id)), name(std::move(name)), quantity(quantity), price(price) {}
+        4:   12-block  0
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+call    3 returned 4
+        -:   13:
+        -:   14:    explicit Product(int quantity) : quantity(quantity) {}
+        -:   15:
+function _ZNK7Product6get_idB5cxx11Ev called 14 returned 100% blocks executed 100%
+       14:   16:     string get_id() const {
+       14:   17:        return id;
+       14:   17-block  0
+call    0 returned 14
+        -:   18:    }
+        -:   19:
+function _ZNK7Product8get_nameB5cxx11Ev called 12 returned 100% blocks executed 100%
+       12:   20:     string get_name() const {
+       12:   21:        return name;
+       12:   21-block  0
+call    0 returned 12
+        -:   22:    }
+        -:   23:
+        -:   24:     int get_quantity() const;
+        -:   25:
+function _ZN7Product12set_quantityEi called 4 returned 100% blocks executed 100%
+        4:   26:    void set_quantity(int new_quantity) {
+        4:   27:        quantity = new_quantity;
+        4:   28:    }
+        -:   29:
+function _ZNK7Product9get_priceEv called 15 returned 100% blocks executed 100%
+       15:   30:     double get_price() const {
+       15:   31:        return price;
+       15:   31-block  0
+        -:   32:    }
+        -:   33:
+        -:   34:    double price{};
+        -:   35:private:
+        -:   36:    string id;
+        -:   37:    string name;
+        -:   38:    int quantity;
+        -:   39:};
+        -:   40:
+function _ZNK7Product12get_quantityEv called 11 returned 100% blocks executed 100%
+       11:   41:int Product::get_quantity() const {
+       11:   42:    return quantity;
+       11:   42-block  0
+        -:   43:}
+        -:   44:
+        -:   45:class Inventory {
+        -:   46:public:
+function _ZN9Inventory11add_productERK7Product called 3 returned 100% blocks executed 100%
+        3:   47:    void add_product(const Product& product) {
+        3:   48:        products.push_back(product);
+        3:   48-block  0
+call    0 returned 3
+        3:   49:    }
+        -:   50:
+function _ZN9Inventory14remove_productERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   51:    void remove_product(const string& id) {
+    #####:   52:        for (int i = 0; i < products.size(); i++) {
+    %%%%%:   52-block  0
+    %%%%%:   52-block  1
+    %%%%%:   52-block  2
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   53:            if (products[i].get_id() == id) {
+    %%%%%:   53-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   54:                products.erase(products.begin() + i);
+    %%%%%:   54-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:   54-block  1
+    $$$$$:   54-block  2
+    #####:   55:                break;
+    %%%%%:   55-block  0
+        -:   56:            }
+        -:   57:        }
+    #####:   58:    }
+    %%%%%:   58-block  0
+        -:   59:
+function _ZN9Inventory14update_productERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEid called 4 returned 100% blocks executed 100%
+        4:   60:    void update_product(const string& id, int new_quantity, double new_price) {
+        7:   61:        for (auto & product : products) {
+        4:   61-block  0
+call    0 returned 4
+call    1 returned 4
+        7:   61-block  1
+call    2 returned 7
+        3:   61-block  2
+call    3 returned 3
+        7:   61-block  3
+call    4 returned 7
+branch  5 taken 7
+branch  6 taken 0 (fallthrough)
+        7:   62:            if (id == product.get_id()) {
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0 (throw)
+        7:   62-block  0
+call    3 returned 7
+call    4 returned 7
+branch  5 taken 4 (fallthrough)
+branch  6 taken 3
+        4:   63:                product.set_quantity(new_quantity);
+        4:   63-block  0
+call    0 returned 4
+        4:   64:                product.price = new_price;
+        4:   65:                break;
+        -:   66:            }
+        -:   67:        }
+        4:   68:    }
+        4:   68-block  0
+        -:   69:
+function _ZNK9Inventory17display_inventoryEv called 2 returned 100% blocks executed 86%
+        2:   70:    void display_inventory() const {
+        2:   71:        cout << "Inventory:\n";
+        2:   71-block  0
+call    0 returned 2
+        8:   72:        for (const auto& product : products) {
+call    0 returned 2
+call    1 returned 2
+        6:   72-block  0
+call    2 returned 6
+        8:   72-block  1
+call    3 returned 8
+branch  4 taken 6
+branch  5 taken 2 (fallthrough)
+        6:   73:            cout << product.get_name() << " - Quantity: " << product.get_quantity() << " - Price: " << product.get_price() << endl;
+call    0 returned 6
+branch  1 taken 6 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   73-block  0
+call    3 returned 6
+branch  4 taken 6 (fallthrough)
+branch  5 taken 0 (throw)
+        6:   73-block  1
+call    6 returned 6
+branch  7 taken 6 (fallthrough)
+branch  8 taken 0 (throw)
+        6:   73-block  2
+call    9 returned 6
+call   10 returned 6
+branch 11 taken 6 (fallthrough)
+branch 12 taken 0 (throw)
+        6:   73-block  3
+call   13 returned 6
+branch 14 taken 6 (fallthrough)
+branch 15 taken 0 (throw)
+        6:   73-block  4
+call   16 returned 6
+call   17 returned 6
+branch 18 taken 6 (fallthrough)
+branch 19 taken 0 (throw)
+        6:   73-block  5
+call   20 returned 6
+branch 21 taken 6 (fallthrough)
+branch 22 taken 0 (throw)
+        6:   73-block  6
+call   23 returned 6
+call   24 returned 6
+    $$$$$:   73-block  7
+call   25 never executed
+    $$$$$:   73-block  8
+        -:   74:        }
+        2:   75:    }
+        2:   75-block  0
+        -:   76:
+        -:   77:    void save_inventory_to_file(const string& filename) const;
+        -:   78:
+        -:   79:    void load_inventory_from_file(const string& filename);
+        -:   80:
+        -:   81:    vector<Product> products;
+        -:   82:};
+        -:   83:
+function _ZNK9Inventory22save_inventory_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 75%
+        1:   84:void Inventory::save_inventory_to_file(const string &filename) const {
+        1:   85:    ofstream file(filename);
+        1:   85-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   86:    if (file.is_open()) {
+        1:   86-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   86-block  1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        4:   87:        for (const auto& product : products) {
+        1:   87-block  0
+call    0 returned 1
+call    1 returned 1
+        3:   87-block  1
+call    2 returned 3
+        4:   87-block  2
+call    3 returned 4
+branch  4 taken 3
+branch  5 taken 1 (fallthrough)
+        3:   88:            file << product.get_id() << "," << product.get_name() << "," << product.get_quantity() << "," << product.get_price() << endl;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   88-block  0
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   88-block  1
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:   88-block  2
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:   88-block  3
+call   12 returned 3
+branch 13 taken 3 (fallthrough)
+branch 14 taken 0 (throw)
+        3:   88-block  4
+call   15 returned 3
+branch 16 taken 3 (fallthrough)
+branch 17 taken 0 (throw)
+        3:   88-block  5
+call   18 returned 3
+call   19 returned 3
+branch 20 taken 3 (fallthrough)
+branch 21 taken 0 (throw)
+        3:   88-block  6
+call   22 returned 3
+branch 23 taken 3 (fallthrough)
+branch 24 taken 0 (throw)
+        3:   88-block  7
+call   25 returned 3
+call   26 returned 3
+branch 27 taken 3 (fallthrough)
+branch 28 taken 0 (throw)
+        3:   88-block  8
+call   29 returned 3
+branch 30 taken 3 (fallthrough)
+branch 31 taken 0 (throw)
+        3:   88-block  9
+call   32 returned 3
+call   33 returned 3
+call   34 returned 3
+    $$$$$:   88-block 10
+call   35 never executed
+    $$$$$:   88-block 11
+    $$$$$:   88-block 12
+call   36 never executed
+    $$$$$:   88-block 13
+        -:   89:        }
+        1:   90:        file.close();
+        1:   90-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   91:    }
+        1:   92:}
+        1:   92-block  0
+call    0 returned 1
+    $$$$$:   92-block  1
+call    1 never executed
+        -:   93:
+function _ZN9Inventory24load_inventory_from_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 12%
+        1:   94:void Inventory::load_inventory_from_file(const string &filename) {
+        1:   95:    ifstream file(filename);
+        1:   95-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   96:    if (file.is_open()) {
+        1:   96-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   96-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    #####:   97:        string line;
+    %%%%%:   97-block  0
+call    0 never executed
+    #####:   98:        while (getline(file, line)) {
+    %%%%%:   98-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   98-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   98-block  2
+branch  6 never executed
+branch  7 never executed
+    #####:   99:            string id, name;
+    %%%%%:   99-block  0
+call    0 never executed
+call    1 never executed
+        -:  100:            int quantity;
+        -:  101:            double price;
+    #####:  102:            stringstream ss(line);
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  103:            getline(ss, id, ',');
+    %%%%%:  103-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  104:            getline(ss, name, ',');
+    %%%%%:  104-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  105:            ss >> quantity >> price;
+    %%%%%:  105-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  105-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  106:            Product product(id, name, quantity, price);
+    %%%%%:  106-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  106-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  106-block  2
+call    6 never executed
+call    7 never executed
+    $$$$$:  106-block  3
+    #####:  107:            add_product(product);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  108:        }
+    %%%%%:  108-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    $$$$$:  108-block  1
+call    4 never executed
+    $$$$$:  108-block  2
+call    5 never executed
+    $$$$$:  108-block  3
+call    6 never executed
+    $$$$$:  108-block  4
+call    7 never executed
+    #####:  109:        file.close();
+    %%%%%:  109-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  110:    }
+    %%%%%:  110-block  0
+call    0 never executed
+    $$$$$:  110-block  1
+call    1 never executed
+        1:  111:}
+        1:  111-block  0
+call    0 returned 1
+    $$$$$:  111-block  1
+call    1 never executed
+        -:  112:
+        -:  113:class Customer {
+        -:  114:public:
+        -:  115:    Customer(string name, string email);
+        -:  116:
+function _ZNK8Customer8get_nameB5cxx11Ev called 1 returned 100% blocks executed 100%
+        1:  117:    string get_name() const {
+        1:  118:        return name;
+        1:  118-block  0
+call    0 returned 1
+        -:  119:    }
+        -:  120:
+function _ZNK8Customer9get_emailB5cxx11Ev called 1 returned 100% blocks executed 100%
+        1:  121:     string get_email() const {
+        1:  122:        return email;
+        1:  122-block  0
+call    0 returned 1
+        -:  123:    }
+        -:  124:
+        -:  125:
+        -:  126:
+        -:  127:private:
+        -:  128:    string name;
+        -:  129:    string email;
+        -:  130:};
+        -:  131:
+function _ZN8CustomerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ called 1 returned 100% blocks executed 100%
+        1:  132:Customer::Customer(string name, string email) : name(std::move(name)), email(std::move(email)) {}
+        1:  132-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        -:  133:
+        -:  134:class Invoice {
+        -:  135:public:
+        -:  136:    explicit Invoice(Customer customer);
+        -:  137:
+function _ZN7Invoice11add_productERK7Product called 1 returned 100% blocks executed 100%
+        1:  138:    void add_product(const Product& product) {
+        1:  139:        products.push_back(product);
+        1:  139-block  0
+call    0 returned 1
+        1:  140:    }
+        -:  141:
+        -:  142:    [[nodiscard]] double get_total_price() const;
+        -:  143:
+function _ZNK7Invoice13issue_invoiceEv called 1 returned 100% blocks executed 87%
+        1:  144:    void issue_invoice() const {
+        1:  145:        cout << "Invoice:\n";
+        1:  145-block  0
+call    0 returned 1
+        2:  146:        for (const auto& product : products) {
+call    0 returned 1
+call    1 returned 1
+        1:  146-block  0
+call    2 returned 1
+        2:  146-block  1
+call    3 returned 2
+branch  4 taken 1
+branch  5 taken 1 (fallthrough)
+        1:  147:            cout << product.get_name() << " - Price: " << product.get_price() << endl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  147-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  147-block  1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  147-block  2
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 1 (fallthrough)
+branch 12 taken 0 (throw)
+        1:  147-block  3
+call   13 returned 1
+branch 14 taken 1 (fallthrough)
+branch 15 taken 0 (throw)
+        1:  147-block  4
+call   16 returned 1
+call   17 returned 1
+    $$$$$:  147-block  5
+call   18 never executed
+    $$$$$:  147-block  6
+        -:  148:        }
+        1:  149:        cout << "Total price: " << get_total_price() << endl;
+        1:  149-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        1:  150:    }
+        -:  151:
+function _ZNK7Invoice20save_invoice_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 74%
+        1:  152:    void save_invoice_to_file(const string& filename) const {
+        1:  153:        ofstream file(filename);
+        1:  153-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  154:        if (file.is_open()) {
+        1:  154-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  154-block  1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:  155:            file << "Customer name:," << customer.get_name() << "\n";
+        1:  155-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  155-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  155-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  155-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  155-block  4
+call   12 returned 1
+    $$$$$:  155-block  5
+call   13 never executed
+    $$$$$:  155-block  6
+        1:  156:            file << "Customer email:," << customer.get_email() << "\n";
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  156-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  156-block  1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  156-block  2
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  156-block  3
+call   12 returned 1
+    $$$$$:  156-block  4
+call   13 never executed
+    $$$$$:  156-block  5
+        1:  157:            file << "Product ID,Product Name,Quantity,Price\n";
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  158:            for (const auto& product : products) {
+        1:  158-block  0
+call    0 returned 1
+call    1 returned 1
+        1:  158-block  1
+call    2 returned 1
+        2:  158-block  2
+call    3 returned 2
+branch  4 taken 1
+branch  5 taken 1 (fallthrough)
+        1:  159:                file << product.get_id() << "," << product.get_name() << "," << product.get_quantity() << "," << product.get_price() << endl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  159-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  159-block  1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  159-block  2
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  159-block  3
+call   12 returned 1
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0 (throw)
+        1:  159-block  4
+call   15 returned 1
+branch 16 taken 1 (fallthrough)
+branch 17 taken 0 (throw)
+        1:  159-block  5
+call   18 returned 1
+call   19 returned 1
+branch 20 taken 1 (fallthrough)
+branch 21 taken 0 (throw)
+        1:  159-block  6
+call   22 returned 1
+branch 23 taken 1 (fallthrough)
+branch 24 taken 0 (throw)
+        1:  159-block  7
+call   25 returned 1
+call   26 returned 1
+branch 27 taken 1 (fallthrough)
+branch 28 taken 0 (throw)
+        1:  159-block  8
+call   29 returned 1
+branch 30 taken 1 (fallthrough)
+branch 31 taken 0 (throw)
+        1:  159-block  9
+call   32 returned 1
+call   33 returned 1
+call   34 returned 1
+    $$$$$:  159-block 10
+call   35 never executed
+    $$$$$:  159-block 11
+    $$$$$:  159-block 12
+call   36 never executed
+    $$$$$:  159-block 13
+        -:  160:            }
+        1:  161:            file << "Total price:," << get_total_price() << endl;
+        1:  161-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  161-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  161-block  2
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
+branch  9 taken 0 (throw)
+        1:  162:            file.close();
+        1:  162-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  163:        }
+        1:  164:    }
+        1:  164-block  0
+call    0 returned 1
+    $$$$$:  164-block  1
+call    1 never executed
+        -:  165:
+        -:  166:private:
+        -:  167:     Customer customer;
+        -:  168:    vector<Product> products;
+        -:  169:};
+        -:  170:
+function _ZN7InvoiceC2E8Customer called 1 returned 100% blocks executed 100%
+        1:  171:Invoice::Invoice(Customer customer) : customer(std::move(customer)) {}
+        1:  171-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        -:  172:
+function _ZNK7Invoice15get_total_priceEv called 2 returned 100% blocks executed 100%
+        2:  173:double Invoice::get_total_price() const {
+        2:  174:    double total_price = 0;
+        4:  175:    for (const auto& product : products) {
+        2:  175-block  0
+call    0 returned 2
+call    1 returned 2
+        2:  175-block  1
+call    2 returned 2
+        4:  175-block  2
+call    3 returned 4
+branch  4 taken 2
+branch  5 taken 2 (fallthrough)
+        2:  176:        total_price += product.get_price();
+call    0 returned 2
+call    1 returned 2
+        -:  177:    }
+        2:  178:    return total_price;
+        2:  178-block  0
+        -:  179:}
+        -:  180:
+function main called 1 returned 0% blocks executed 63%
+        1:  181:int main() {
+        1:  182:    Inventory inventory;
+        1:  182-block  0
+call    0 returned 1
+        1:  183:    inventory.load_inventory_from_file("inventory.txt");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  183-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  183-block  1
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  183-block  2
+call    9 never executed
+    $$$$$:  183-block  3
+    $$$$$:  183-block  4
+call   10 never executed
+    $$$$$:  183-block  5
+        -:  184:
+        1:  185:    int option = 0;
+       10:  186:    while (option != 6) {
+       10:  186-block  0
+branch  0 taken 10
+branch  1 taken 0 (fallthrough)
+       10:  187:        cout << "1. Add product\n";
+       10:  187-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  188:        cout << "2. Remove product\n";
+       10:  188-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  189:        cout << "3. Update product\n";
+       10:  189-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  190:        cout << "4. Display inventory\n";
+       10:  190-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  191:        cout << "5. Issue invoice\n";
+       10:  191-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  192:        cout << "6. Exit\n";
+       10:  192-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  193:        cout << "Enter your option: ";
+       10:  193-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:  194:        cin >> option;
+       10:  194-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        9:  195:        if (option == 1) {
+        9:  195-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 6
+        3:  196:            string id, name;
+        3:  196-block  0
+call    0 returned 3
+call    1 returned 3
+        -:  197:            int quantity;
+        -:  198:            double price;
+        3:  199:            cout << "Enter product ID: ";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  200:            cin >> id;
+        3:  200-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  201:            cout << "Enter product name: ";
+        3:  201-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  202:            cin.ignore();
+        3:  202-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  203:            getline(cin, name);
+        3:  203-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  204:            cout << "Enter product quantity: ";
+        3:  204-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  205:            cin >> quantity;
+        3:  205-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  206:            cout << "Enter product price: ";
+        3:  206-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  207:            cin >> price;
+        3:  207-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        6:  208:            Product product(id, name, quantity, price);
+        3:  208-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  208-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  208-block  2
+call    6 returned 3
+call    7 returned 3
+    $$$$$:  208-block  3
+        3:  209:            inventory.add_product(product);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  210:            cout << "Product added to inventory.\n";
+        3:  210-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        9:  211:        } else if (option == 2) {
+        3:  211-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        6:  211-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 6
+    $$$$$:  211-block  2
+call    5 never executed
+    $$$$$:  211-block  3
+call    6 never executed
+    $$$$$:  211-block  4
+call    7 never executed
+    #####:  212:            string id;
+    %%%%%:  212-block  0
+call    0 never executed
+    #####:  213:            cout << "Enter product ID: ";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  214:            cin >> id;
+    %%%%%:  214-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  215:            inventory.remove_product(id);
+    %%%%%:  215-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  216:            cout << "Product removed from inventory.\n";
+    %%%%%:  216-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+       6*:  217:        } else if (option == 3) {
+    %%%%%:  217-block  0
+call    0 never executed
+        6:  217-block  1
+branch  1 taken 3 (fallthrough)
+branch  2 taken 3
+    $$$$$:  217-block  2
+call    3 never executed
+        3:  218:            string id;
+        3:  218-block  0
+call    0 returned 3
+        -:  219:            int quantity;
+        -:  220:            double price;
+        3:  221:            cout << "Enter product ID: ";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  222:            cin >> id;
+        3:  222-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  223:            cout << "Enter new quantity: ";
+        3:  223-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  224:            cin >> quantity;
+        3:  224-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  225:            cout << "Enter new price: ";
+        3:  225-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  226:            cin >> price;
+        3:  226-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  227:            inventory.update_product(id, quantity, price);
+        3:  227-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  228:            cout << "Product updated in inventory.\n";
+        3:  228-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        6:  229:        } else if (option == 4) {
+        3:  229-block  0
+call    0 returned 3
+        3:  229-block  1
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+    $$$$$:  229-block  2
+call    3 never executed
+        2:  230:            inventory.display_inventory();
+        2:  230-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  231:        } else if (option == 5) {
+        1:  231-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  232:            string customer_name, customer_email;
+        1:  232-block  0
+call    0 returned 1
+call    1 returned 1
+        -:  233:            int num_products;
+        1:  234:            cout << "Enter customer name: ";
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  235:            cin.ignore();
+        1:  235-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  236:            getline(cin, customer_name);
+        1:  236-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  237:            cout << "Enter customer email: ";
+        1:  237-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  238:            getline(cin, customer_email);
+        1:  238-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  239:            cout << "Enter number of products: ";
+        1:  239-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  240:            cin >> num_products;
+        1:  240-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  241:            Customer customer(customer_name, customer_email);
+        1:  241-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  241-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  241-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  241-block  3
+        1:  242:            Invoice invoice(customer);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  242-block  0
+call    3 returned 1
+        2:  243:            for (int i = 0; i < num_products; i++) {
+        2:  243-block  0
+branch  0 taken 1
+branch  1 taken 1 (fallthrough)
+        1:  244:                string id;
+        1:  244-block  0
+call    0 returned 1
+        1:  245:                cout << "Enter product ID: ";
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  246:                cin >> id;
+        1:  246-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  247:                int quantity;
+        1:  248:                cout << "Enter quantity: ";
+        1:  248-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  249:                cin >> quantity;
+        1:  249-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  250:                for (const auto& product : inventory.products) {
+        1:  250-block  0
+call    0 returned 1
+call    1 returned 1
+        2:  250-block  1
+call    2 returned 2
+        1:  250-block  2
+call    3 returned 1
+        2:  250-block  3
+call    4 returned 2
+branch  5 taken 2
+branch  6 taken 0 (fallthrough)
+        2:  251:                    if (product.get_id() == id) {
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  251-block  0
+call    3 returned 2
+call    4 returned 2
+branch  5 taken 1 (fallthrough)
+branch  6 taken 1
+        2:  252:                        Product invoice_product(product.get_id(), product.get_name(), quantity, product.get_price());
+        1:  252-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  252-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  252-block  2
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  252-block  3
+        1:  253:                        invoice.add_product(invoice_product);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  254:                        inventory.update_product(id, product.get_quantity() - quantity, product.get_price());
+        1:  254-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:  255:                        break;
+        1:  255-block  0
+        1:  256:                    }
+        1:  256-block  0
+call    0 returned 1
+    $$$$$:  256-block  1
+call    1 never executed
+        -:  257:                }
+        1:  258:            }
+        1:  258-block  0
+call    0 returned 1
+    $$$$$:  258-block  1
+call    1 never executed
+        1:  259:            invoice.issue_invoice();
+        1:  259-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  260:            invoice.save_invoice_to_file("invoice.csv");
+        1:  260-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  260-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  260-block  2
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  260-block  3
+call    9 never executed
+    $$$$$:  260-block  4
+    $$$$$:  260-block  5
+call   10 never executed
+    $$$$$:  260-block  6
+        1:  261:            inventory.save_inventory_to_file("inventory.txt");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  261-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  261-block  1
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  261-block  2
+call    9 never executed
+    $$$$$:  261-block  3
+    $$$$$:  261-block  4
+call   10 never executed
+    $$$$$:  261-block  5
+       1*:  262:        } else if (option == 6) {
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+    %%%%%:  262-block  0
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  262-block  1
+call    6 never executed
+    $$$$$:  262-block  2
+call    7 never executed
+    $$$$$:  262-block  3
+call    8 never executed
+    $$$$$:  262-block  4
+call    9 never executed
+    #####:  263:            cout << "Exiting program.\n";
+    %%%%%:  263-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  264:        } else {
+    #####:  265:            cout << "Invalid option.\n";
+    %%%%%:  265-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  266:        }
+        -:  267:    }
+        -:  268:
+    #####:  269:    return 0;
+    #####:  270:}
+    %%%%%:  270-block  0
+call    0 never executed
+    $$$$$:  270-block  1
+call    1 never executed
